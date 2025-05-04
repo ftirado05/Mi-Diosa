@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz 1 año y 5 meses ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio id="bg-music" src="./Morat - En Un Sólo Día.mp3" loop></audio>
+
+  <div class="container">
+    <h1 class="title">Feliz 1 año y 5 meses, mi amor ❤️</h1>
+    <p class="subtitle">Gracias por estar a mi lado todo este tiempo.</p>
+
+    <button id="musicBtn">Activar música 🎶</button>
+    <button id="revealBtn">Ver tu sorpresa 🎁</button>
+
+    <div id="surprise" class="hidden">
+      <p class="letter">
+        Han pasado 1 año y 5 meses desde que decidimos caminar juntos, y cada uno de esos días ha sido un regalo. No hay palabras que puedan describir lo agradecido que estoy 
+        por haberte encontrado y por haberte conocido.
+        <br>
+        <br>
+        Amo cómo me miras, cómo sonríes, y hasta enojada cuando algo no te gusta. Me has enseñado que el amor no es perfecto, pero sí real. 
+        Gracias por tu paciencia, por tus abrazos, por las risas, por los silencios compartidos y por todos los momentos que hemos creado juntos.
+        <br>
+        <br>  
+        Sueño con un futuro contigo, con despertar a tu lado cada mañana, con construir juntos un hogar lleno de paz y alegría. 
+        Sueño con vernos crecer, apoyarnos en cada meta, y celebrar cada pequeño logro como lo hemos hecho hasta ahora.
+        <br>
+        <br>
+        Tú eres mi lugar seguro, mi motivación, mi calma y mi aventura. Y aunque el mundo cambie, aunque haya días grises o tormentas, quiero que siempre recuerdes que mi amor por 
+        ti es constante, profundo y sincero.
+        <br>
+        <br>
+        Gracias por estos 17 meses. Gracias por ser tú. Te amo más de lo que estas palabras pueden decir ❤️.
+      </p>
+
+      <div class="gallery">
+        <div class="photo" onclick="openLightbox('img1.png', 'Momentos, ratos, cada dia se vuelve un recuerdo inolvidable y son los mejores mi amor, te amo demasiado.')">
+          <img src="img1.png" alt="Foto 1" />
+        </div>
+        <div class="photo" onclick="openLightbox('img2.png', 'Ya quiero estar 24/7 juntos amor, me encanta todo de ti, amo tenerte cerca y sentir esa paz, sentir tantas cosas y me hacen pensar, que quiero un futuro juntos logrando la meta y sueños de cada uno.')">
+          <img src="img2.png" alt="Foto 2" />
+        </div>
+        <div class="photo" onclick="openLightbox('img3.jpeg', 'Quien lo diria que ibamos a coincidir tanto.')">
+          <img src="img3.jpeg" alt="Foto 3" />
+        </div>
+        <div class="photo" onclick="openLightbox('img4.jpeg', 'Uno de los mejores dias de mi vida fue estar tan seguro de ese, Si, y hoy en dia estoy tan agredecido con Dios y la vida porque te colocara en mi camino, Te amo ❤️')">
+          <img src="img4.jpeg" alt="Foto 4" />
+        </div>
+        <div class="photo" onclick="openLightbox('img5.png', 'Mi primer carnaval que celebro y al saber que tu igual, me fascina y me encanta los dias asi de recocha, ya hace falta otra rumba para bailar toda la noche mi amor, me hace mucha falta.')">
+            <img src="img5.png" alt="Foto 5" />
+          </div>
+        <div class="photo" onclick="openLightbox('img6.png', 'Simplemente, T E  A M O  M I  D I O S A ❤️')"> <br>
+          <img src="img6.png" alt="Foto 6" />
+        </div>
+    </div>
+</div>
+</div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Imagen ampliada" />
+    <p id="lightbox-message" class="lightbox-message"></p>
+  </div>
+
+  <div id="hearts-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

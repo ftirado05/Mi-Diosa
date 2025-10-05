@@ -45,7 +45,25 @@ body {
     transition: transform 0.3s ease;
     margin: 10px 5px;
   }
-  
+
+.nora {
+  background-color: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1em;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-top: 25px; /* separa más del grupo */
+  display: block;   /* hace que quede debajo de los otros */
+  margin-left: auto;
+  margin-right: auto; /* lo centra */
+  text-decoration: none;
+}
+    .nora:hover {
+    transform: scale(1.05);
+  }
   button:hover {
     transform: scale(1.05);
   }

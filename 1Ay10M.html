@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi amor 💖</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd1dc, #ffe6f0, #ffb6c1);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+  }
+
+  .contador {
+    font-size: 1.2rem;
+    color: #5a2a4e;
+    font-weight: 500;
+    margin-top: 20px;
+  }
+
+.photo {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  animation: floatPhoto 20s linear infinite;
+  z-index: 0; /* 🔹 Esta línea asegura que estén detrás del poema */
+}
+
+
+  @keyframes floatPhoto {
+    from { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    to { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+.poem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #5a2a4e;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  max-width: 600px;
+  z-index: 10; /* 🔹 Esto garantiza que el poema quede por encima */
+}
+
+</style>
+</head>
+<body>
+
+<div id="contador" class="contador"></div>
+
+<div id="container" style="display:none;">
+  <div class="poem">
+    <h1>1 año y 10 meses mi amor 💗</h1>
+
+<p>A veces miro el cielo<br>
+y te busco entre las nubes,<br>
+como si el viento pudiera<br>
+devolverme tus abrazos.<br><br>
+Guardo tus risas en mi memoria,<br>
+como ecos que no se apagan.<br><br>
+Y aunque el tiempo siga corriendo,<br>
+mi corazón se queda donde tú estabas.<br><br>
+No hay distancia que borre<br>
+lo que fuimos ni lo que somos,<br>
+porque hay amores que no terminan,<br>
+solo aprenden a vivir en el recuerdo. 💫<br><br>
+
+Te amo Nora 💗
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const images = [
+    "img/1.jpeg",
+    "img/2.jpeg",
+    "img/3.jpeg",
+    "img/4.jpeg",
+    "img/5.jpeg",
+    "img/6.jpeg",
+    "img/7.jpeg",
+    "img/8.jpeg",
+    "img/9.jpeg",
+    "img/10.jpeg",
+    "img/11.jpeg",
+    "img/12.jpeg"
+  ];
+
+  function createFloatingPhotos() {
+    const container = document.getElementById('container');
+    images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.classList.add('photo');
+      img.style.left = Math.random() * 100 + 'vw';
+      img.style.animationDuration = (15 + Math.random() * 10) + 's';
+      container.appendChild(img);
+    });
+  }
+
+  let blocked = false;
+  let timeLeft = 10;
+  const contadorEl = document.getElementById('contador');
+
+  function startCountdown() {
+    contadorEl.innerHTML = `⏳ Espera <b>${timeLeft}</b> segundos, mi amor...`;
+    const interval = setInterval(() => {
+      timeLeft--;
+      contadorEl.innerHTML = `⏳ Espera <b>${timeLeft}</b> segundos, mi amor...`;
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        contadorEl.innerHTML = '';
+        blocked = false;
+        timeLeft = 10;
+        showPasswordPrompt();
+      }
+    }, 1000);
+  }
+
+  function showPasswordPrompt() {
+    if (blocked) {
+      Swal.fire({
+        icon: "warning",
+        title: "Demasiados intentos 💔",
+        text: "Espera un momento antes de intentarlo otra vez, mi amor.",
+        background: '#ffe6f0',
+        confirmButtonColor: '#d46a9e',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      return;
+    }
+
+    Swal.fire({
+      title: '💞 Digita la clave mi amor 💞',
+      html: `
+        <p>Puedes ver la pista si quieres 😘</p>
+        <button id="verPista" class="swal2-confirm swal2-styled" style="background:#ff8fab;">Ver pista 💌</button>
+        <p id="pista" style="display:none; margin-top:10px; color:#5a2a4e;">💡 Está en minúsculas y todo pegado, y es algo que siempre te digo 💕</p>
+      `,
+      input: 'password',
+      inputPlaceholder: 'Tu clave secreta...',
+      confirmButtonText: 'Entrar 💖',
+      background: '#ffe6f0',
+      color: '#5a2a4e',
+      confirmButtonColor: '#d46a9e',
+      didOpen: () => {
+        document.getElementById('verPista').addEventListener('click', () => {
+          document.getElementById('pista').style.display = 'block';
+        });
+      }
+    }).then(result => {
+      if (!result.value) return;
+
+      const respuestas = ["mitodo", "midiosa"]; // puedes poner varias opciones
+      if (respuestas.includes(result.value.trim().toLowerCase())) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Bienvenida mi amor 💖',
+          text: 'Disfruta este pequeño regalo hecho con mi corazón.',
+          background: '#ffe6f0',
+          confirmButtonColor: '#d46a9e'
+        }).then(() => {
+          document.getElementById('container').style.display = 'block';
+          createFloatingPhotos();
+        });
+      } else {
+        blocked = true;
+        const mensajes = [
+          "No amor, esa no es 😢",
+          "Dale tú puedes 💕",
+          "Mmm... casi mi amor 😘",
+          "No mi vida, inténtalo otra vez 💗"
+        ];
+        const mensaje = mensajes[Math.floor(Math.random() * mensajes.length)];
+
+        Swal.fire({
+          icon: 'error',
+          title: mensaje,
+          text: 'Tienes que esperar 10 segunditos...',
+          confirmButtonColor: '#d46a9e'
+        });
+        startCountdown();
+      }
+    });
+  }
+
+  showPasswordPrompt();
+</script>
+</body>
+</html>

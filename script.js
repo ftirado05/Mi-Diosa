@@ -68,3 +68,42 @@ document.getElementById("revealBtn").addEventListener("click", () => {
     lightbox.style.display = "none";
   }
   
+
+// === ACCESO POR CLAVE O CONTADOR ===
+document.getElementById("accessBtn").addEventListener("click", () => {
+  const clave = prompt("💌 Ingresa la clave secreta para acceder a la sorpresa:");
+  const claveCorrecta = "teamo"; // <-- cambia la clave si quieres
+  const countdownContainer = document.getElementById("countdown-container");
+  const countdownText = document.getElementById("countdown-text");
+
+  if (clave === claveCorrecta) {
+    alert("💖 Clave correcta, prepárate para tu sorpresa...");
+    window.location.href = "./1Ay10M.html";
+  } else {
+    alert("❌ Clave incorrecta... pero podrás verla cuando llegue el momento 💫");
+    countdownContainer.style.display = "block";
+
+    // Establecer la fecha objetivo (5 de octubre a las 00:00)
+    const targetDate = new Date("October 5, 2025 00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        countdownText.textContent = "🎁 Ya puedes abrir tu sorpresa 💖";
+        setTimeout(() => {
+          window.location.href = "./1Ay10M.html";
+        }, 2000);
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownText.textContent = `⏰ Faltan ${days}d ${hours}h ${minutes}m ${seconds}s para poder abrirlo 💌`;
+      }
+    }, 1000);
+  }
+});
